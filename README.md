@@ -6,8 +6,8 @@ This repository has been forked from [minhur/bootstrap-toggle](https://github.co
 ### Installation
 
 ```html
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/CSOIreland/bootstrap-toggle@2.2.2.1/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/CSOIreland/bootstrap-toggle@2.2.2.1/js/bootstrap-toggle.min.js"></script>
 ```
 
 ## Usage
