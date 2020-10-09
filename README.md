@@ -1,5 +1,6 @@
-# Bootstrap-4 Toggle
+# Bootstrap Toggle
 Bootstrap-4 Toggle is a highly flexible **Bootstrap 4.x** plugin that converts checkboxes into toggles.
+
 This repository has been forked from [minhur/bootstrap-toggle](https://github.com/minhur/bootstrap-toggle) in order to provide compliance with **Accessibility Requirements WCAG 2.1** in responsed to the issue [minhur/bootstrap-toggle#125](https://github.com/minhur/bootstrap-toggle/issues/125)
 
 ### Installation
