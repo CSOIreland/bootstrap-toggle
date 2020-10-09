@@ -55,8 +55,8 @@
 		// Issue #125
 		var $toggleOn = $('<button class="btn">').html(this.options.on)
 			.addClass(this._onstyle + ' ' + size)
-			.focus($(this).closest('.input-group').addClass('focused'))
 			.blur($(this).closest('.input-group').removeClass('focused'))
+			.focus($(this).closest('.input-group').addClass('focused'))
 		var $toggleOff = $('<label class="btn">').html(this.options.off)
 			.addClass(this._offstyle + ' ' + size + ' active')
 		var $toggleHandle = $('<span class="toggle-handle btn btn-default">')
