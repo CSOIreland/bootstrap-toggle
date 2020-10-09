@@ -1,23 +1,12 @@
-# Bootstrap Toggle
-Bootstrap Toggle is a highly flexible Bootstrap plugin that converts checkboxes into toggles.
-
-Visit http://www.bootstraptoggle.com for demos.
-
-## Getting Started
+# Bootstrap-4 Toggle
+Bootstrap-4 Toggle is a highly flexible Bootstrap plugin that converts checkboxes into toggles.
+This repository has been forked from [minhur/bootstrap-toggle](https://github.com/minhur/bootstrap-toggle) in order to provide compliance with **Accessibility Requirements WCAG 2.1** in responsed to the issue [minhur/bootstrap-toggle#125](https://github.com/minhur/bootstrap-toggle/issues/125)
 
 ### Installation
-You can [download](https://github.com/minhur/bootstrap-toggle/archive/master.zip) the latest version of Bootstrap Toggle or use CDN to load the library.
-
-`Warning` If you are using Bootstrap v2.3.2, use `bootstrap2-toggle.min.js` and `bootstrap2-toggle.min.css` instead.
 
 ```html
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-```
-
-### Bower Install
-```bash
-bower install bootstrap-toggle
 ```
 
 ## Usage
@@ -163,13 +152,3 @@ This also means that using the API or Input to trigger events will work both way
   }
 </script>
 ```
-
-### Integration
-
-#### [KnockoutJS](http://knockoutjs.com)
-
-A binding for knockout is available here: [aAXEe/knockout-bootstrap-toggle](https://github.com/aAXEe/knockout-bootstrap-toggle)
-
-## Demos
-
-Visit http://www.bootstraptoggle.com for demos.
