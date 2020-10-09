@@ -7,19 +7,19 @@
  * ======================================================================== */
 
 
- +function ($) {
- 	'use strict';
++function ($) {
+	'use strict';
 
 	// TOGGLE PUBLIC CLASS DEFINITION
 	// ==============================
 
 	var Toggle = function (element, options) {
-		this.$element  = $(element)
-		this.options   = $.extend({}, this.defaults(), options)
+		this.$element = $(element)
+		this.options = $.extend({}, this.defaults(), options)
 		this.render()
 	}
 
-	Toggle.VERSION  = '2.2.0'
+	Toggle.VERSION = '2.2.0'
 
 	Toggle.DEFAULTS = {
 		on: 'On',
@@ -32,7 +32,7 @@
 		height: null
 	}
 
-	Toggle.prototype.defaults = function() {
+	Toggle.prototype.defaults = function () {
 		return {
 			on: this.$element.attr('data-on') || Toggle.DEFAULTS.on,
 			off: this.$element.attr('data-off') || Toggle.DEFAULTS.off,
@@ -50,10 +50,13 @@
 		this._offstyle = 'btn-' + this.options.offstyle
 		var size = this.options.size === 'large' ? 'btn-lg'
 			: this.options.size === 'small' ? 'btn-sm'
-			: this.options.size === 'mini' ? 'btn-xs'
-			: ''
-		var $toggleOn = $('<label class="btn">').html(this.options.on)
+				: this.options.size === 'mini' ? 'btn-xs'
+					: ''
+		// Use button instead of lael for tab-key access
+		var $toggleOn = $('<button class="btn">').html(this.options.on)
 			.addClass(this._onstyle + ' ' + size)
+			.focus($(this).closest('.input-group').addClass('focused'))
+			.blur($(this).closest('.input-group').removeClass('focused'))
 		var $toggleOff = $('<label class="btn">').html(this.options.off)
 			.addClass(this._offstyle + ' ' + size + ' active')
 		var $toggleHandle = $('<span class="toggle-handle btn btn-default">')
@@ -61,7 +64,7 @@
 		var $toggleGroup = $('<div class="toggle-group">')
 			.append($toggleOn, $toggleOff, $toggleHandle)
 		var $toggle = $('<div class="toggle btn" data-toggle="toggle">')
-			.addClass( this.$element.prop('checked') ? this._onstyle : this._offstyle+' off' )
+			.addClass(this.$element.prop('checked') ? this._onstyle : this._offstyle + ' off')
 			.addClass(size).addClass(this.options.style)
 
 		this.$element.wrap($toggle)
@@ -73,7 +76,7 @@
 		})
 		this.$toggle.append($toggleGroup)
 
-		var width = this.options.width || Math.max($toggleOn.outerWidth(), $toggleOff.outerWidth())+($toggleHandle.outerWidth()/2)
+		var width = this.options.width || Math.max($toggleOn.outerWidth(), $toggleOff.outerWidth()) + ($toggleHandle.outerWidth() / 2)
 		var height = this.options.height || Math.max($toggleOn.outerHeight(), $toggleOff.outerHeight())
 		$toggleOn.addClass('toggle-on')
 		$toggleOff.addClass('toggle-off')
@@ -125,12 +128,12 @@
 	Toggle.prototype.trigger = function (silent) {
 		this.$element.off('change.bs.toggle')
 		if (!silent) this.$element.change()
-		this.$element.on('change.bs.toggle', $.proxy(function() {
+		this.$element.on('change.bs.toggle', $.proxy(function () {
 			this.update()
 		}, this))
 	}
 
-	Toggle.prototype.destroy = function() {
+	Toggle.prototype.destroy = function () {
 		this.$element.off('change.bs.toggle')
 		this.$toggleGroup.remove()
 		this.$element.removeData('bs.toggle')
@@ -142,8 +145,8 @@
 
 	function Plugin(option) {
 		return this.each(function () {
-			var $this   = $(this)
-			var data    = $this.data('bs.toggle')
+			var $this = $(this)
+			var data = $this.data('bs.toggle')
 			var options = typeof option == 'object' && option
 
 			if (!data) $this.data('bs.toggle', (data = new Toggle(this, options)))
@@ -153,7 +156,7 @@
 
 	var old = $.fn.bootstrapToggle
 
-	$.fn.bootstrapToggle             = Plugin
+	$.fn.bootstrapToggle = Plugin
 	$.fn.bootstrapToggle.Constructor = Toggle
 
 	// TOGGLE NO CONFLICT
@@ -167,11 +170,11 @@
 	// TOGGLE DATA-API
 	// ===============
 
-	$(function() {
+	$(function () {
 		$('input[type=checkbox][data-toggle^=toggle]').bootstrapToggle()
 	})
 
-	$(document).on('click.bs.toggle', 'div[data-toggle^=toggle]', function(e) {
+	$(document).on('click.bs.toggle', 'div[data-toggle^=toggle]', function (e) {
 		var $checkbox = $(this).find('input[type=checkbox]')
 		$checkbox.bootstrapToggle('toggle')
 		e.preventDefault()
