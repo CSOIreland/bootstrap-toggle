@@ -52,7 +52,7 @@
 			: this.options.size === 'small' ? 'btn-sm'
 				: this.options.size === 'mini' ? 'btn-xs'
 					: ''
-		// Use button instead of lael for tab-key access
+		// Issue #125
 		var $toggleOn = $('<button class="btn">').html(this.options.on)
 			.addClass(this._onstyle + ' ' + size)
 			.focus($(this).closest('.input-group').addClass('focused'))
