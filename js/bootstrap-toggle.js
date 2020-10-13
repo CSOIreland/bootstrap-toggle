@@ -1,11 +1,3 @@
-/*! ========================================================================
- * Bootstrap Toggle: bootstrap-toggle.js v2.2.0
- * http://www.bootstraptoggle.com
- * ========================================================================
- * Copyright 2014 Min Hur, The New York Times Company
- * Licensed under MIT
- * ======================================================================== */
-
 
 +function ($) {
 	'use strict';
@@ -48,6 +40,7 @@
 	Toggle.prototype.render = function () {
 		this._onstyle = 'btn-' + this.options.onstyle
 		this._offstyle = 'btn-' + this.options.offstyle
+
 		var size = this.options.size === 'large' ? 'btn-lg'
 			: this.options.size === 'small' ? 'btn-sm'
 				: this.options.size === 'mini' ? 'btn-xs'
@@ -55,10 +48,20 @@
 		// Issue #125
 		var $toggleOn = $('<button class="btn">').html(this.options.on)
 			.addClass(this._onstyle + ' ' + size)
-			.blur($(this).closest('.input-group').removeClass('focused'))
-			.focus($(this).closest('.input-group').addClass('focused'))
+			.blur(function () {
+				$(this).parent().find('.toggle-handle').removeClass('btn-info').addClass('btn-default')
+			})
+			.focus(function () {
+				$(this).parent().find('.toggle-handle').removeClass('btn-default').addClass('btn-info')
+			})
 		var $toggleOff = $('<label class="btn">').html(this.options.off)
 			.addClass(this._offstyle + ' ' + size + ' active')
+			.blur(function () {
+				$(this).parent().find('.toggle-handle').removeClass('btn-info').addClass('btn-default')
+			})
+			.focus(function () {
+				$(this).parent().find('.toggle-handle').removeClass('btn-default').addClass('btn-info')
+			})
 		var $toggleHandle = $('<span class="toggle-handle btn btn-default">')
 			.addClass(size)
 		var $toggleGroup = $('<div class="toggle-group">')
